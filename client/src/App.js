@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
+import {Toaster} from 'react-hot-toast';
+import { UserContextProvider } from './context/userContext';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
+import Landing from './pages/Landing';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Workspace from './pages/Workspace';
+import ProfileInformation from './pages/ProfileInformation';
+
+// Backend port
+axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.withCredentials =true
+
+const clientId = '587967536606-7lm06no1cv9vs3iv5dtu9j7m0sv8jlgt.apps.googleusercontent.com'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId={clientId}> 
+    <Router>
+      <UserContextProvider> 
+      <Toaster position="top-right"  reverseOrder={true} toastOptions={{duration: 2000}} />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profileinformation/:userId" element={<ProfileInformation />} />
+          <Route path="/workspace" element={<Workspace />} />
+        </Routes>
+      </UserContextProvider>
+    </Router>
+    </GoogleOAuthProvider>
   );
 }
 

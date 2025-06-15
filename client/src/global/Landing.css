@@ -1,0 +1,12 @@
+.links a {
+    text-decoration: none;
+    color: black;
+}
+.links a:hover{
+    color: rgb(109, 109, 180);
+}
+.nav-links{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+}

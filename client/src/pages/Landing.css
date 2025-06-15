@@ -1,0 +1,148 @@
+body{
+    background-color: #F1F4FB;
+    font-family: 'Poppins', sans-serif;
+}
+.cover-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    overflow: hidden;
+}
+.cover {
+    width: 64%;
+    float: right;
+    display: block;    
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(58, 89, 135, 0), rgba(253, 253, 253, 0.438));
+  z-index: 1;
+}
+.title-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  z-index: 2;
+  color: rgb(0, 0, 0);
+}
+h1{
+    font-size: 3rem;
+    margin: 0;
+}
+p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-container{
+    padding: 50px;
+    margin-bottom: 10px;
+    height: 100vh;
+}
+.pricing-title{
+    display: flex;
+    justify-content: center;
+}
+
+.pricing{
+    display: flex;
+    justify-content: center;
+}
+
+
+.member-pricing{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #fff;
+    max-width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    margin: 20px;
+    transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+.member-pricing h2{
+    margin-bottom: 60px;
+}
+/* HOVER ANIMATION */
+.member-pricing::before {
+  content: '';
+  position: absolute;
+  background: rgba(0,255,255,0.2);
+  transform: rotate(-45deg) translateY(0);
+  opacity: 0;
+  transition: 
+    transform 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 1;
+}
+.member-pricing:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+.member-pricing:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+
+.owner-pricing{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #fff;
+    max-width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    margin: 20px;
+    transition: 
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+.owner-pricing h2{
+    margin-bottom: 30px;
+}
+
+/* HOVER ANIMATION */
+.owner-pricing::before {
+  content: '';
+  position: absolute;
+  background: rgba(0,255,255,0.2);
+  transform: rotate(-45deg) translateY(0);
+  opacity: 0;
+  transition: 
+    transform 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 1;
+}
+.owner-pricing:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+.owner-pricing:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
