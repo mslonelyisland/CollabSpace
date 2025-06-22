@@ -1,0 +1,28 @@
+<div>
+                    <div className='dropdown-wrapper'>
+                        <div className='dropdown'>
+                            <button
+                                className='btn btn-light dropdown-toggle'
+                                type='button'
+                                id='sidebarDropdown'
+                                data-bs-toggle='dropdown'
+                            >
+                                Settings
+                            </button>
+                            <ul className='dropdown-menu' aria-labelledby='sidebarDropdown'>
+                                <li>
+                                    <NavLink to='/profile' className='dropdown-item'>Profile</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/settings' className='dropdown-item' style={{ color: 'black' }}>Settings</NavLink>
+                                </li>
+                                <li>
+                                    <hr className='dropdown-divider' />
+                                </li>
+                                <li>
+                                    <NavLink to='/logout' className='dropdown-item' style={{ color: 'black' }}>Logout</NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>

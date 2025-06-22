@@ -1,32 +1,21 @@
 const userInfo = require('../models/userinfo');
 
-const userProfile = async (req,res) => {
+exports.userProfile = async (req,res) => {
     try {
+        const userId = req.params.userId;
+        console.log("Received userId:", userId); 
+
         const {userRole , firstName, lastName} = req.body;
         const image = req.file?.buffer;
         // check for empty fields
-        if (!userRole) {
-            return res.json({
-                error: 'required!'
-            })
-        }
-        if (!firstName) {
-            return res.json({
-                error: 'required!'
-            })
-        }
-        if (!lastName) {
-            return res.json({
-                error: 'required!'
-            })
-        }
-        if (!image) {
+        if (!userRole || !firstName || !lastName || !image) {
             return res.json({
                 error: 'required!'
             })
         }
         // create in database
         const profile = await userInfo.create({
+            user: userId,
             userRole,
             firstName,
             lastName,
@@ -36,6 +25,4 @@ const userProfile = async (req,res) => {
     } catch (error) {
         console.log(error)
     }
-}
-
-module.exports = (userProfile);
+};

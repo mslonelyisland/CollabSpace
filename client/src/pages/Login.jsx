@@ -37,7 +37,7 @@ export default function Login() {
             <div className="content-wrapper">
                 <Cover/>
                 <form className="form-container" onSubmit={loginUser}>
-                    <h2 className="form-title"> Log in to start</h2>
+                    <h3 className="form-title"> Log in to start</h3>
                     <div className="input-content">
                         <label>Email</label>
                         <input type="text" placeholder="Enter your email... " value={data.email} onChange={(e) => setData({...data, email: e.target.value})}></input>
@@ -47,7 +47,7 @@ export default function Login() {
                         <input type="password" placeholder="Enter your password... " value={data.password} onChange={(e) => setData({...data, password: e.target.value})}></input>
                     </div>
                     <button type="submit" className="login-btn">Login</button>
-                    <div className="google-btn">
+                    {/* <div className="google-btn">
                         <GoogleLogin 
                         onSuccess={(response) => {
                             console.log(response.credential); // JWT token
@@ -56,7 +56,7 @@ export default function Login() {
                             console.log('Login Failed');
                         }}
                         />
-                    </div>
+                    </div> */}
                 </form>
             </div>      
         </div>

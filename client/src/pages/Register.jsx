@@ -45,7 +45,7 @@ export default function Register() {
             <div className="content-wrapper">
                 <Cover/>
                 <form className="form-container" onSubmit={registerUser}>
-                    <h2 className="form-title"> Register to start</h2>
+                    <h3 className="form-title"> Register to start</h3>
                     <div className="input-content">
                         <label>Email </label>
                         <input type='text' placeholder="Enter your email..."value={data.email} onChange={(e) => setData({...data, email: e.target.value})}/>
@@ -55,7 +55,7 @@ export default function Register() {
                         <input type='password' placeholder="Enter your password..."value={data.password} onChange={(e) => setData({...data, password: e.target.value})}/>
                     </div>
                     <button type="submit" className="register-btn"> {loading ? 'Registering...' : 'Register'} </button>
-                    <div className="google-btn">
+                    {/* <div className="google-btn">
                         <GoogleLogin 
                         onSuccess={(response) => {
                             console.log(response.credential); // JWT token
@@ -64,7 +64,7 @@ export default function Register() {
                             console.log('Login Failed');
                         }}
                         />
-                    </div>
+                    </div> */}
                 </form>
             </div>
         </div>

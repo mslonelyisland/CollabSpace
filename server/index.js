@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: false}))
 
 // Routes
-app.use('/', require('./routes/authRoutes.js'))
-app.use('/', require('./routes/profile.js'))
+app.use('/', require('./routes/authRoutes.js'));
+app.use('/profileinformation', require('./routes/profile.js'));
 
 // Server
 app.listen(port, () =>console.log(`Server is running on ${port}`))

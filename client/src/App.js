@@ -3,13 +3,13 @@ import axios from 'axios';
 import {Toaster} from 'react-hot-toast';
 import { UserContextProvider } from './context/userContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Workspace from './pages/Workspace';
 import ProfileInformation from './pages/ProfileInformation';
-
+import Workspace from './pages/Workspace';
 // Backend port
 axios.defaults.baseURL = 'http://localhost:5000'
 axios.defaults.withCredentials =true

@@ -9,8 +9,9 @@ import './ProfileInformation.css';
 export default function ProfileInformation() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-    const { userId } = useParams();
+    const { userId } = useParams(); 
     const [data, setData] = useState({
+        user: userId,
         userRole: '',
         firstName: '',
         lastName: '',
@@ -53,6 +54,12 @@ export default function ProfileInformation() {
     const handleimageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            if (file.size > maxSize) {
+            toast.error("Image must be smaller than 5MB");
+            return;
+            }
+
             setData({ ...data, image: file});
             
             const reader = new FileReader();
@@ -69,8 +76,7 @@ export default function ProfileInformation() {
         <div className='content-wrapper'>
             <form className='profile-wrapper' onSubmit={ profileInformation}>
                 <div className='user-role'>
-                    <h3> What type of user are you? </h3>
-                    <label>Choose one</label>
+                    <h4 className='title'> What type of user are you? </h4>
                     <div className='radio-wrapper'>
                         <div className='radio-input'>
                         <label><input type='radio' value='member' checked={data.userRole === 'member'} onChange={(e) => setData({...data, userRole: e.target.value})}/>Member</label>
@@ -84,7 +90,7 @@ export default function ProfileInformation() {
                 {/* conditional statement */}
                 {data.userRole &&(
                     <>
-                    <h2 className='title'> Profile Information </h2>
+                    <h5 className='sub-title'> Profile Information </h5>
                     <div className='input-content'>
                     <label> Choose Image</label>
                     <input type='file' accept='image/*' onChange={handleimageChange}></input>
