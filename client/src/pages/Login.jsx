@@ -12,16 +12,19 @@ export default function Login() {
         email: '',
         password: ''
     })
-
+    
     const loginUser = async (e) => {
         e.preventDefault();
         const {email,password} = data
         try {
             const {data} = await axios.post('http://localhost:5000/login',{email,password});
+            const { token, user } = res.data;
+
             if (data.error){
                 toast.error(data.error);
             }
             else{
+                localStorage.setItem('token', token);
                 // set the data to an empty object, to reset the form to its default value
                 setData({});
                 toast.success('Login Successful');
