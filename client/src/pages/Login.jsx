@@ -18,7 +18,7 @@ export default function Login() {
         const {email,password} = data
         try {
             const {data} = await axios.post('http://localhost:5000/login',{email,password});
-            const { token, user } = res.data;
+            const { token, user } = data;
 
             if (data.error){
                 toast.error(data.error);
