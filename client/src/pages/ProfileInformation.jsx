@@ -40,7 +40,7 @@ export default function ProfileInformation() {
             else{
                 setData({});
                 toast.success('Registration Complete!')
-                navigate('/workspace')
+                navigate('/dashboard')
             }
             
         } catch (error) {
